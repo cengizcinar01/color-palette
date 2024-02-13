@@ -91,3 +91,15 @@ body {
     justify-content: center;
     flex-direction: column;
 }
+
+.title {
+    font-size: 38px;
+    font-weight: 300;
+    color: var(--secondary-color);
+}
+
+.desc {
+    font-size: 16px;
+    font-weight: 300;
+    color: var(--quaternary-color);
+}
