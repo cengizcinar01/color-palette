@@ -136,3 +136,17 @@ input[type="text"] {
     border-radius: 50%;
     background-color: red;
 }
+
+.search .image {
+    display: block;
+    width: 58px;
+    height: 58px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--quaternary-color);
+    cursor: pointer;
+    background: var(--primary-color);
+    border: 1px dashed #ddd;
+    font-size: 1.2rem;
+}
