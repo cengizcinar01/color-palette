@@ -150,3 +150,7 @@ input[type="text"] {
     border: 1px dashed #ddd;
     font-size: 1.2rem;
 }
+
+.search .image:hover {
+    border-color: var(--quaternary-color);
+}
