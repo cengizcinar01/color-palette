@@ -125,3 +125,14 @@ input[type="text"] {
     background: var(--primary-color);
     color: var(--quaternary-color);
 }
+
+.search .code .search-color {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background-color: red;
+}
