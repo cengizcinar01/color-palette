@@ -287,3 +287,21 @@ select#palette-count {
     cursor: pointer;
     background-color: var(--primary-color);
 }
+
+.toast {
+    position: fixed;
+    top: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: max-content;
+    padding: 10px 20px;
+    z-index: 999;
+    pointer-events: none;
+    color: var(--quaternary-color);
+    background-color: var(--secondary-color);
+    transition: all 0.15s ease-in;
+}
+
+.toast.show {
+    top: 20px;
+}
