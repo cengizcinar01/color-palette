@@ -199,3 +199,13 @@ select#palette-count {
     cursor: pointer;
     color: var(--secondary-color);
 }
+
+.label {
+    width: 100%;
+    text-transform: capitalize;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--secondary-color);
+    text-align: left;
+    margin-bottom: 10px;
+}
