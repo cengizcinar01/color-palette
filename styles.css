@@ -194,3 +194,8 @@ select#palette-count {
     color: var(--quaternary-color);
     transition: all 0.3s;
 }
+
+#random-btn:hover {
+    cursor: pointer;
+    color: var(--secondary-color);
+}
