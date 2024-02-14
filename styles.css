@@ -184,3 +184,13 @@ select {
 select#palette-count {
     width: 25%;
 }
+
+.or {
+    user-select: none;
+    width: max-content;
+    opacity: 0.7;
+    margin: 20px 0;
+    font-size: 14px;
+    color: var(--quaternary-color);
+    transition: all 0.3s;
+}
