@@ -235,5 +235,19 @@ select#palette-count {
     align-items: center;
     justify-content: center;
     transform: scale(2);
+    transition: all 0.15s ease-in;
     background-color: rgba(0, 0, 0, 0.1);
+}
+
+.palette .color:hover .overlay {
+    transform: scale(1);
+}
+
+.palette .color .icons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    gap: 12px;
+    color: var(--tertiary-color);
 }
