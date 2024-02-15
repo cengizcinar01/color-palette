@@ -305,3 +305,22 @@ select#palette-count {
 .toast.show {
     top: 20px;
 }
+
+.switch {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.switch .slider {
+    position: relative;
+    height: 40px;
+    width: 80px;
+    background-color: var(--primary-color);
+    cursor: pointer;
+    transition: all 0.15s ease-in;
+    z-index: 999;
+}
