@@ -286,6 +286,7 @@ select#palette-count {
     color: var(--quaternary-color);
     cursor: pointer;
     background-color: var(--primary-color);
+    border-radius: 5px;
 }
 
 .toast {
@@ -378,7 +379,8 @@ select#palette-count {
         height: 50px;
     }
 
-    select {
+    select,
+    .btn {
         height: 50px;
         font-size: 14px;
     }
@@ -395,5 +397,10 @@ select#palette-count {
         line-height: 20px;
         width: 50px;
         padding: 0 5px;
+    }
+
+    .palette .color .icons div {
+        width: 20px;
+        height: 20px;
     }
 }
