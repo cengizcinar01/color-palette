@@ -333,5 +333,13 @@ select#palette-count {
     width: 30px;
     content: "";
     background-color: var(--quaternary-color);
-    transition: all 0.15 ease-in;
+    transition: all 0.15s ease-in;
+}
+
+.switch #toggle {
+    display: none;
+}
+
+.switch #toggle:checked~.slider::before {
+    transform: translateX(40px);
 }
