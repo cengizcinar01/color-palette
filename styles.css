@@ -324,3 +324,14 @@ select#palette-count {
     transition: all 0.15s ease-in;
     z-index: 999;
 }
+
+.switch .slider::before {
+    position: absolute;
+    left: 5px;
+    bottom: 5px;
+    height: 30px;
+    width: 30px;
+    content: "";
+    background-color: var(--quaternary-color);
+    transition: all 0.15 ease-in;
+}
