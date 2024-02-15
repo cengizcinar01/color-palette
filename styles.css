@@ -382,4 +382,18 @@ select#palette-count {
         height: 50px;
         font-size: 14px;
     }
+
+    .palette .color {
+        height: 70px;
+    }
+
+    .palette .color .overlay {
+        font-size: 10px;
+    }
+
+    .palette .color .code {
+        line-height: 20px;
+        width: 50px;
+        padding: 0 5px;
+    }
 }
