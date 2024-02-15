@@ -345,7 +345,7 @@ select#palette-count {
     transform: translateX(40px);
 }
 
-/* Reponsive Design */
+/* Responsive Design */
 @media (max-width: 768px) {
     .container {
         justify-content: flex-start;
@@ -402,5 +402,19 @@ select#palette-count {
     .palette .color .icons div {
         width: 20px;
         height: 20px;
+    }
+
+    .switch .slider {
+        height: 25px;
+        width: 50px;
+    }
+
+    .switch .slider::before {
+        height: 15px;
+        width: 15px;
+    }
+
+    .switch #toggle:checked~.slider::before {
+        transform: translateX(25px);
     }
 }
