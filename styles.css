@@ -366,4 +366,10 @@ select#palette-count {
         height: 50px;
         font-size: 14px;
     }
+
+    .search .code .search-color {
+        width: 15px;
+        height: 15px;
+        right: 10px;
+    }
 }
