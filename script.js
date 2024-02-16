@@ -21,5 +21,7 @@ function generateAnalogousPalette(hs1, count) {
         if (newHue > 360) {
             newHue -= 360;
         }
+        palette.push([newHue, saturation, lightness]);
     }
+    return palette;
 }
