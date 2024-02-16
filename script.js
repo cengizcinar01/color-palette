@@ -28,7 +28,7 @@ function generateAnalogousPalette(hs1, count) {
 
 function generateMonochromaticPalette(hsl, count) {
     const palette = [];
-    const [hue, saturation, lightness] = hsl;
+    let [hue, saturation, lightness] = hsl;
 
     for (let i = 0; i < count; i++) {
         let newLightness = (lightness = 10 * 1);
@@ -39,3 +39,22 @@ function generateMonochromaticPalette(hsl, count) {
     }
     return palette;
 }
+
+function generateTriadicPalette(hsl, count) {
+    const palette = [];
+    let [hue, saturation, lightness] = hsl;
+    for (let i = 0; i < count; i++) {
+        let newHue = hue + 120 * i;
+        if (newHue > 360) {
+            newHue -= 360;
+        }
+        palette.push([newHue, saturation, lightness]);
+    }
+    return palette;
+}
+
+let hsl = [155, 55, 55];
+
+let palette = generateTriadicPalette(hsl, 6);
+
+console.log(palette);
