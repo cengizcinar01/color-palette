@@ -105,8 +105,25 @@ function generateSquarePalette(hsl, count) {
     return palette;
 }
 
+function generateRelatedColorPalette(hsl, count) {
+    const palette = [];
+    const [hue, saturation, lightness] = hsl;
+
+    palette.push([hue, (saturation + 20) % 100, lightness]);
+    palette.push([hue, (saturation - 20) % 100, lightness]);
+    palette.push([hue, saturation, (lightness + 20) % 100]);
+    palette.push([(hue + 20) % 360, saturation, lightness]);
+    palette.push([(hue - 20) % 360, saturation, lightness]);
+
+    for (let i = palette.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [palette[i], palette[j]] = [palette[j], palette[i]];
+    }
+    return palette;
+}
+
 let hsl = [155, 55, 55];
 
-let palette = generateSquarePalette(hsl, 6);
+let palette = generateRelatedColorPalette(hsl, 6);
 
 console.log(palette);
