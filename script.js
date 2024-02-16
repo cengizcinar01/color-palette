@@ -25,3 +25,17 @@ function generateAnalogousPalette(hs1, count) {
     }
     return palette;
 }
+
+function generateMonochromaticPalette(hsl, count) {
+    const palette = [];
+    const [hue, saturation, lightness] = hsl;
+
+    for (let i = 0; i < count; i++) {
+        let newLightness = (lightness = 10 * 1);
+        if (newLightness > 100) {
+            newLightness -= 100;
+        }
+        palette.push([hue, saturation, newLightness]);
+    }
+    return palette;
+}
