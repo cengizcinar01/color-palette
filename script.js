@@ -11,3 +11,15 @@ let currentColor = 'skyblue',
     currentType = 'analogous',
     currentCount = 6,
     imageColors = [];
+
+function generateAnalogousPalette(hs1, count) {
+    const palette = [];
+    const [hue, saturation, lightness] = hsl;
+
+    for (let i = 0; i < count; i++) {
+        let newHue = hue + 30 * i;
+        if (newHue > 360) {
+            newHue -= 360;
+        }
+    }
+}
