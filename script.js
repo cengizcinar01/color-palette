@@ -66,8 +66,21 @@ function generateCompoundPalette(hsl, count) {
     return palette;
 }
 
+function generateShadesPalette(hsl, count) {
+    const palette = [];
+    let [hue, saturation, lightness] = hsl;
+    for (let i = 0; i < count; i++) {
+        let newSaturation = saturation + 10 * i;
+        if (newSaturation > 100) {
+            newSaturation -= 100;
+        }
+        palette.push([hue, newSaturation, lightness]);
+    }
+    return palette;
+}
+
 let hsl = [155, 55, 55];
 
-let palette = generateCompoundPalette(hsl, 6);
+let palette = generateShadesPalette(hsl, 6);
 
 console.log(palette);
