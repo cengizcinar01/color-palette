@@ -122,6 +122,27 @@ function generateRelatedColorPalette(hsl, count) {
     return palette;
 }
 
+function generatePalette(hsl, type, count) {
+    switch (type) {
+        case 'analogous':
+            return generateAnalogousPalette(hsl, count);
+        case 'monochromatic':
+            return generateMonochromaticPalette(hsl, count);
+        case 'triadic':
+            return generateTriadicPalette(hsl, count);
+        case 'compound':
+            return generateCompoundPalette(hsl, count);
+        case 'shades':
+            return generateShadesPalette(hsl, count);
+        case 'tetradic':
+            return generateTetradicPalette(hsl, count);
+        case 'square':
+            return generateSquarePalette(hsl, count);
+        case 'related':
+            return generateRelatedPalette(hsl, count);
+    }
+}
+
 let hsl = [155, 55, 55];
 
 let palette = generateRelatedColorPalette(hsl, 6);
