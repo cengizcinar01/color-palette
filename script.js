@@ -143,6 +143,12 @@ function generatePalette(hsl, type, count) {
     }
 }
 
+function generatePaletteHtml(type, container) {
+    let color = currentColor;
+    let count = currentCount;
+    const hsl = getHslFromColor(color);
+}
+
 let hsl = [155, 55, 55];
 
 let palette = generateRelatedColorPalette(hsl, 6);
