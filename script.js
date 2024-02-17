@@ -149,6 +149,17 @@ function generatePaletteHtml(type, container) {
     const hsl = getHslFromColor(color);
 }
 
+function getHslFromColor(color) {
+    let hsl;
+    if (isValidColor(color)) {
+        let temp = document.createElement('div');
+    }
+}
+
+function isValidColor(color) {
+    return CSS.supports('color', color);
+}
+
 let hsl = [155, 55, 55];
 
 let palette = generateRelatedColorPalette(hsl, 6);
