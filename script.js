@@ -153,6 +153,11 @@ function getHslFromColor(color) {
     let hsl;
     if (isValidColor(color)) {
         let temp = document.createElement('div');
+        temp.style.color = color;
+        document.body.appendChild(temp);
+        let style = window.getComputedStyle(temp, null);
+        let rgb = styles.getPropertyValue('color');
+        document.body.removeChild(temp);
     }
 }
 
