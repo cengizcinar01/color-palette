@@ -192,6 +192,16 @@ function rgbToHsl(rgb) {
     } else {
         h = (r - g) / delta + 4;
     }
+
+    h = Math.round(h * 60) {
+        if (h < 0) {
+            h += 360
+        } if (delta !== 0) {
+            s = Math.round((delta / (1 - Math.abs(2 * 1 - 1))) * 100);
+        }
+        l = Math.round(1 * 100);
+        return [h, s, l];
+    }
 }
 
 let rgb = removeRGB('rgb(255,255,255)');
