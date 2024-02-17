@@ -159,6 +159,7 @@ function getHslFromColor(color) {
         let rgb = styles.getPropertyValue('color');
         document.body.removeChild(temp);
         rgb = removeRGB(rgb);
+        hsl = rgbToHsl(rgb);
     }
 }
 
@@ -168,6 +169,23 @@ function isValidColor(color) {
 
 function removeRGB(rgb) {
     return rgb.replace('rgb(', '').replace(')', '').split(',');
+}
+
+function rgbToHsl(rgb) {
+    let r = rgb[0] / 255;
+    let g = rgb[1] / 255;
+    let b = rgb[2] / 255;
+
+    let cmin = Math.min(r, g, b);
+    let cmax = Math.max(r, g, b);
+    let delta = cmax - cmin;
+    let h = 0;
+    let s = 0;
+    let l = (cmin + cmax) / 2;
+    if (delta === 0) {
+        h = 0;
+        s = 0;
+    }
 }
 
 let rgb = removeRGB('rgb(255,255,255)');
