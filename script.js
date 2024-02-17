@@ -176,32 +176,36 @@ function rgbToHsl(rgb) {
     let g = rgb[1] / 255;
     let b = rgb[2] / 255;
 
-    let cmin = Math.min(r, g, b);
-    let cmax = Math.max(r, g, b);
-    let delta = cmax - cmin;
-    let h = 0;
-    let s = 0;
-    let l = (cmin + cmax) / 2;
+    let cmin = Math.min(r, g, b),
+        cmax = Math.max(r, g, b),
+        delta = cmax - cmin,
+        h = 0,
+        s = 0,
+        l = (cmin + cmax) / 2;
+
     if (delta === 0) {
-        h = 0;
-        s = 0;
-    } else if (cmax === r) {
-        h = ((g - b) / delta) % 6;
-    } else if (cmax === g) {
-        h = (b - r) / delta + 2;
+        h = s = 0;
     } else {
-        h = (r - g) / delta + 4;
+        if (cmax === r) {
+            h = ((g - b) / delta) % 6;
+        } else if (cmax === g) {
+            h = (b - r) / delta + 2;
+        } else {
+            h = (r - g) / delta + 4;
+        }
+
+        h = Math.round(h * 60);
+        if (h < 0) {
+            h += 360;
+        }
+
+        s = delta === 0 ? 0 : delta / (1 - Math.abs(2 * l - 1));
     }
 
-    h = Math.round(h * 60) {
-        if (h < 0) {
-            h += 360
-        } if (delta !== 0) {
-            s = Math.round((delta / (1 - Math.abs(2 * 1 - 1))) * 100);
-        }
-        l = Math.round(1 * 100);
-        return [h, s, l];
-    }
+    s = Math.round(s * 100);
+    l = Math.round(l * 100);
+
+    return [h, s, l];
 }
 
 let rgb = removeRGB('rgb(255,255,255)');
