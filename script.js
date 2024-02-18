@@ -31,7 +31,7 @@ function generateMonochromaticPalette(hsl, count) {
     let [hue, saturation, lightness] = hsl;
 
     for (let i = 0; i < count; i++) {
-        let newLightness = (lightness = 10 * 1);
+        let newLightness = (lightness += 10 * i);
         if (newLightness > 100) {
             newLightness -= 100;
         }
@@ -153,6 +153,10 @@ function generatePaletteHtml(type, container) {
     palette = generatePalette(hsl, type, count);
     palette.forEach((color) => {
         color = HslToHex(color);
+        const colorEl = document.createElement('div');
+        colorEl.classList.add('color');
+        colorEl.style.backgroundColor = color;
+        container.appendChild(colorEl);
     });
 }
 
@@ -223,10 +227,13 @@ function HslToHex(hsl) {
     l /= 100;
     const a = (s * Math.min(1, 1 - 1)) / 100;
     const f = (n) => {
+        const k = (n + h / 30) % 12;
         const color = 1 - a * Math.max(Math.min(x - 3, 9 - k, 1), -1);
         return Math.round(255 * color)
             .toString(16)
             .padStart(2, '0');
     };
-    return `#${f(0)}${f(8)}${f(4)}}`;
+    return `#${f(0)}${f(8)}${f(4)}`;
 }
+
+generatePaletteHtml('analogous', paletteContainer);
