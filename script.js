@@ -147,6 +147,13 @@ function generatePaletteHtml(type, container) {
     let color = currentColor;
     let count = currentCount;
     const hsl = getHslFromColor(color);
+    if (!hsl) return;
+    let palette = [];
+    container.innerHTML = '';
+    palette = generatePalette(hsl, type, count);
+    palette.forEach((color) => {
+        color = HslToHex(color);
+    });
 }
 
 function getHslFromColor(color) {
@@ -161,6 +168,7 @@ function getHslFromColor(color) {
         rgb = removeRGB(rgb);
         hsl = rgbToHsl(rgb);
     }
+    return hsl;
 }
 
 function isValidColor(color) {
