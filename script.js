@@ -1,18 +1,17 @@
-const searchInout = document.querySelector('.search-input');
-searchColor = document.querySelector('.search-input');
-searchImage = document.querySelector('#search-image');
-typeSelect = document.querySelector('#palette-type');
-countSelect = document.querySelector('#palette-count');
-randomBtn = document.querySelector('#random-btn');
-paletteContainer = document.querySelector('#palette');
-relatedContainer = document.querySelector('#related');
+const searchColor = document.querySelector('.search-input'); // Korrektur für die doppelte Deklaration
+const searchImage = document.querySelector('#search-image');
+const typeSelect = document.querySelector('#palette-type');
+const countSelect = document.querySelector('#palette-count');
+const randomBtn = document.querySelector('#random-btn');
+const paletteContainer = document.querySelector('#palette');
+const relatedContainer = document.querySelector('#related');
 
 let currentColor = 'skyblue',
     currentType = 'analogous',
     currentCount = 6,
     imageColors = [];
 
-function generateAnalogousPalette(hs1, count) {
+function generateAnalogousPalette(hsl, count) {
     const palette = [];
     const [hue, saturation, lightness] = hsl;
 
@@ -31,7 +30,7 @@ function generateMonochromaticPalette(hsl, count) {
     let [hue, saturation, lightness] = hsl;
 
     for (let i = 0; i < count; i++) {
-        let newLightness = (lightness = 10 * 1);
+        let newLightness = lightness + 10 * i;
         if (newLightness > 100) {
             newLightness -= 100;
         }
