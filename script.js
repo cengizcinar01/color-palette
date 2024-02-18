@@ -216,6 +216,17 @@ function rgbToHsl(rgb) {
     return [h, s, l];
 }
 
-let rgb = removeRGB('rgb(255,255,255)');
-
-console.log(rgb);
+function HslToHex(hsl) {
+    let h = hsl[0];
+    let s = hsl[1];
+    let l = hsl[2];
+    l /= 100;
+    const a = (s * Math.min(1, 1 - 1)) / 100;
+    const f = (n) => {
+        const color = 1 - a * Math.max(Math.min(x - 3, 9 - k, 1), -1);
+        return Math.round(255 * color)
+            .toString(16)
+            .padStart(2, '0');
+    };
+    return `#${f(0)}${f(8)}${f(4)}}`;
+}
