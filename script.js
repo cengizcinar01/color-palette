@@ -1,4 +1,4 @@
-const searchColor = document.querySelector('.search-input'); // Korrektur für die doppelte Deklaration
+const searchColor = document.querySelector('.search-input');
 const searchImage = document.querySelector('#search-image');
 const typeSelect = document.querySelector('#palette-type');
 const countSelect = document.querySelector('#palette-count');
@@ -150,28 +150,28 @@ function generatePaletteHtml(type, container) {
     let palette = [];
     container.innerHTML = '';
     palette = generatePalette(hsl, type, count);
-    palette.forEach((color) => {
-        color = HslToHex(color);
+    palette.forEach((hslColor) => {
+        const colorHex = HslToHex(...hslColor);
         const colorEl = document.createElement('div');
         colorEl.classList.add('color');
-        colorEl.style.backgroundColor = color;
+        colorEl.style.backgroundColor = colorHex;
         container.appendChild(colorEl);
     });
 }
 
 function getHslFromColor(color) {
-    let hsl;
     if (isValidColor(color)) {
         let temp = document.createElement('div');
         temp.style.color = color;
         document.body.appendChild(temp);
-        let style = window.getComputedStyle(temp, null);
-        let rgb = styles.getPropertyValue('color');
+        let style = window.getComputedStyle(temp);
+        let rgb = style.getPropertyValue('color');
         document.body.removeChild(temp);
-        rgb = removeRGB(rgb);
-        hsl = rgbToHsl(rgb);
+        let rgbValues = removeRGB(rgb);
+        let hsl = rgbToHsl(rgbValues);
+        return hsl;
     }
-    return hsl;
+    return [360, 100, 50];
 }
 
 function isValidColor(color) {
@@ -219,15 +219,12 @@ function rgbToHsl(rgb) {
     return [h, s, l];
 }
 
-function HslToHex(hsl) {
-    let h = hsl[0];
-    let s = hsl[1];
-    let l = hsl[2];
+function HslToHex(h, s, l) {
     l /= 100;
-    const a = (s * Math.min(1, 1 - 1)) / 100;
+    const a = (s * Math.min(l, 1 - l)) / 100;
     const f = (n) => {
         const k = (n + h / 30) % 12;
-        const color = 1 - a * Math.max(Math.min(x - 3, 9 - k, 1), -1);
+        const color = l - a * Math.max(Math.min(k - 3, 9 - k, 1), -1);
         return Math.round(255 * color)
             .toString(16)
             .padStart(2, '0');
@@ -235,4 +232,4 @@ function HslToHex(hsl) {
     return `#${f(0)}${f(8)}${f(4)}`;
 }
 
-generatePaletteHtml('analogous', paletteContainer);
+console.log(generatePaletteHtml('analogous', paletteContainer));
