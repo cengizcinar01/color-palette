@@ -31,7 +31,7 @@ function generateMonochromaticPalette(hsl, count) {
     let [hue, saturation, lightness] = hsl;
 
     for (let i = 0; i < count; i++) {
-        let newLightness = (lightness += 10 * i);
+        let newLightness = (lightness = 10 * 1);
         if (newLightness > 100) {
             newLightness -= 100;
         }
