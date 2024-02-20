@@ -166,7 +166,7 @@ function generatePaletteHtml(type, container) {
                                 <i class="bx bxs-palette"></i></i>
                             </div>
                         </div>
-                        <div class="code">${color}</div>
+                        <div class="code">${colorHex.toUpperCase()}</div>
                     </div>
         `;
         container.appendChild(colorEl);
