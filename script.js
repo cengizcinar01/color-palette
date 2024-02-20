@@ -113,6 +113,7 @@ function generateRelatedColorPalette(hsl, count) {
     palette.push([hue, saturation, (lightness + 20) % 100]);
     palette.push([(hue + 20) % 360, saturation, lightness]);
     palette.push([(hue - 20) % 360, saturation, lightness]);
+    palette.push([hue, Math.max(0, saturation - 40) % 100, Math.min(100, lightness + 20) % 100]);
 
     for (let i = palette.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
