@@ -138,7 +138,7 @@ function generatePalette(hsl, type, count) {
         case 'square':
             return generateSquarePalette(hsl, count);
         case 'related':
-            return generateRelatedPalette(hsl, count);
+            return generateRelatedColorPalette(hsl, count);
     }
 }
 
@@ -155,6 +155,19 @@ function generatePaletteHtml(type, container) {
         const colorEl = document.createElement('div');
         colorEl.classList.add('color');
         colorEl.style.backgroundColor = colorHex;
+        colorEl.innerHTML = `
+                    <div class="overlay">
+                        <div class="icons">
+                            <div class="copy-color">
+                                <i class="bx bxs-copy"></i>
+                            </div>
+                            <div class="generate-palette">
+                                <i class="bx bxs-palette"></i></i>
+                            </div>
+                        </div>
+                        <div class="code">${color}</div>
+                    </div>
+        `;
         container.appendChild(colorEl);
     });
 }
@@ -232,4 +245,5 @@ function HslToHex(h, s, l) {
     return `#${f(0)}${f(8)}${f(4)}`;
 }
 
-console.log(generatePaletteHtml('analogous', paletteContainer));
+generatePaletteHtml('analogous', paletteContainer);
+generatePaletteHtml('related', relatedContainer);
