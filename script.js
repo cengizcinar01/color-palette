@@ -259,3 +259,9 @@ searchInput.addEventListener('keyup', (e) => {
         generatePaletteHtml('related', relatedContainer);
     }
 });
+
+typeSelect.addEventListener('change', (e) => {
+    const value = e.target.value;
+    currentType = value;
+    generatePaletteHtml(currentType, paletteContainer);
+});
