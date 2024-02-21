@@ -267,3 +267,9 @@ typeSelect.addEventListener('change', (e) => {
     typeText.textContent = value + 'Palette';
     generatePaletteHtml(currentType, paletteContainer);
 });
+
+countSelect.addEventListener("change", (e) => {
+    const value = e.target.value;
+    currentCount = value;
+    generatePaletteHtml(currentType, paletteContainer);
+})
