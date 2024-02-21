@@ -1,4 +1,5 @@
-const searchColor = document.querySelector('.search-input');
+const searchInput = document.querySelector('#search-input');
+const searchColor = document.querySelector('.search-color');
 const searchImage = document.querySelector('#search-image');
 const typeSelect = document.querySelector('#palette-type');
 const countSelect = document.querySelector('#palette-count');
@@ -246,5 +247,15 @@ function HslToHex(h, s, l) {
     return `#${f(0)}${f(8)}${f(4)}`;
 }
 
-generatePaletteHtml('analogous', paletteContainer);
+generatePaletteHtml(currentType, paletteContainer);
 generatePaletteHtml('related', relatedContainer);
+
+searchInput.addEventListener('keyup', (e) => {
+    const value = e.target.value;
+    if (isValidColor(value)) {
+        searchColor.style.backgroundColor = value;
+        currentColor = value;
+        generatePaletteHtml(currentType, paletteContainer);
+        generatePaletteHtml('related', relatedContainer);
+    }
+});
