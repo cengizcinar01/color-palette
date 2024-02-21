@@ -289,4 +289,5 @@ randomBtn.addEventListener('click', () => {
     searchColor.style.backgroundColor = randomColor;
     currentColor = randomColor;
     generatePaletteHtml(currentType, paletteContainer);
+    generatePaletteHtml('related', relatedContainer);
 });
