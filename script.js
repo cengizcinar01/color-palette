@@ -299,7 +299,7 @@ palettes.forEach((palette) => {
         const color = target.parentElement.parentElement.children[1].textContent;
         if (target.classList.contains('copy-color')) {
             copyToClipboard(color);
-            toast(`Color ${color} copied to clipboard`)
+            toast(`Color ${color} copied to clipboard`);
         }
     });
 });
@@ -311,4 +311,11 @@ function copyToClipboard(text) {
     input.select();
     document.execCommand('copy');
     input.remove();
+}
+
+function toast(message) {
+    const toast = document.createElement('div');
+    toast.classList.add('toast');
+    toast.textContent = message;
+    document.body.appendChild(toast);
 }
