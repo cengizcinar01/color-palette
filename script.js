@@ -297,7 +297,9 @@ palettes.forEach((palette) => {
     palette.addEventListener('click', (e) => {
         const target = e.target;
         const color = target.parentElement.parentElement.children[1].textContent;
-        console.log(color);
+        if (target.classList.contains("copy-color")) {
+            copyToClipboard(color);
+        }
     });
 });
 
