@@ -321,4 +321,10 @@ function toast(message) {
     setTimeout(() => {
         toast.classList.add('show');
     }, 10);
+    setTimeout(() => {
+        toast.classList.remove('show');
+        toast.addEventListener('transitionend', () => {
+            toast.remove();
+        });
+    }, 2000);
 }
