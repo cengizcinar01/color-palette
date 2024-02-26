@@ -304,6 +304,7 @@ palettes.forEach((palette) => {
         if (target.classList.contains('generate-palette')) {
             searchInput.value = color;
             searchColor.style.backgroundColor = color;
+            currentColor = color;
             generatePaletteHtml(currentType, paletteContainer);
             generatePaletteHtml('related', relatedContainer);
             toast('Palette generated for' + color);
