@@ -336,3 +336,18 @@ function toast(message) {
         });
     }, 2000);
 }
+
+searchImage.addEventListener('change', (e) => {
+    const file = e.target.files[0];
+    if (file) {
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = function () {
+            const image = new Image();
+            image.src = reader.result;
+            image.onload = function () {
+                extractColorsFromImage(image);
+            };
+        };
+    }
+});
