@@ -318,4 +318,7 @@ function toast(message) {
     toast.classList.add('toast');
     toast.textContent = message;
     document.body.appendChild(toast);
+    setTimeout(() => {
+        toast.classList.add('show');
+    }, 10);
 }
