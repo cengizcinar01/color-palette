@@ -161,10 +161,10 @@ function generatePaletteHtml(type, container) {
         colorEl.innerHTML = `
                     <div class="overlay">
                         <div class="icons">
-                            <div class="copy-color">
+                            <div class="copy-color" title="Copy color code">
                                 <i class="bx bxs-copy"></i>
                             </div>
-                            <div class="generate-palette">
+                            <div class="generate-palette" title="Generate Palette">
                                 <i class="bx bxs-palette"></i></i>
                             </div>
                         </div>
@@ -300,6 +300,8 @@ palettes.forEach((palette) => {
         if (target.classList.contains('copy-color')) {
             copyToClipboard(color);
             toast(`Color ${color} copied to clipboard`);
+        }
+        if (target.classList.contains('generate-palette')) {
         }
     });
 });
