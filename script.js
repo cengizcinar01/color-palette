@@ -302,6 +302,11 @@ palettes.forEach((palette) => {
             toast(`Color ${color} copied to clipboard`);
         }
         if (target.classList.contains('generate-palette')) {
+            searchInput.value = color;
+            searchColor.style.backgroundColor = color;
+            generatePaletteHtml(currentType, paletteContainer);
+            generatePaletteHtml('related', relatedContainer);
+            toast('Palette generated for' + color);
         }
     });
 });
