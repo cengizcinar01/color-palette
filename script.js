@@ -7,6 +7,8 @@ const countSelect = document.querySelector('#palette-count');
 const randomBtn = document.querySelector('#random-btn');
 const paletteContainer = document.querySelector('#palette');
 const relatedContainer = document.querySelector('#related');
+const imageColorsContainer = document.querySelector('#image-colors');
+const imageColorsWrapper = document.querySelector('#image-colors-wrapper');
 
 let currentColor = 'skyblue',
     currentType = 'analogous',
@@ -152,12 +154,21 @@ function generatePaletteHtml(type, container) {
     if (!hsl) return;
     let palette = [];
     container.innerHTML = '';
-    palette = generatePalette(hsl, type, count);
+
+    if (type === 'image-colors') {
+        palette = imageColors;
+    } else {
+        palette = generatePalette(hsl, type, count);
+    }
+
     palette.forEach((hslColor) => {
-        const colorHex = HslToHex(...hslColor);
+        if (type != 'image-colors') {
+            color = HslToHex(...hslColor);
+        }
+
         const colorEl = document.createElement('div');
         colorEl.classList.add('color');
-        colorEl.style.backgroundColor = colorHex;
+        colorEl.style.backgroundColor = color;
         colorEl.innerHTML = `
                     <div class="overlay">
                         <div class="icons">
@@ -168,7 +179,7 @@ function generatePaletteHtml(type, container) {
                                 <i class="bx bxs-palette"></i></i>
                             </div>
                         </div>
-                        <div class="code">${colorHex.toUpperCase()}</div>
+                        <div class="code">${color.toUpperCase()}</div>
                     </div>
         `;
         container.appendChild(colorEl);
@@ -357,6 +368,7 @@ function extractColorsFromImage(image) {
         // empty imageColors array
         imageColors = [];
         imageColors.push(...color);
-        generatePaletteHtml('image-colors', paletteContainer);
+        generatePaletteHtml('image-colors', imageColorsContainer);
+        imageColorsWrapper.classList.remove('hidden');
     });
 }
