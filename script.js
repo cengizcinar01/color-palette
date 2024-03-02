@@ -161,9 +161,9 @@ function generatePaletteHtml(type, container) {
         palette = generatePalette(hsl, type, count);
     }
 
-    palette.forEach((hslColor) => {
+    palette.forEach((color) => {
         if (type != 'image-colors') {
-            color = HslToHex(...hslColor);
+            color = HslToHex(...color);
         }
 
         const colorEl = document.createElement('div');
