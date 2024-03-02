@@ -354,6 +354,9 @@ searchImage.addEventListener('change', (e) => {
 
 function extractColorsFromImage(image) {
     colorjs.prominent(image, { amount: 6, format: 'hex' }).then((color) => {
-        console.log(color);
+        // empty imageColors array
+        imageColors = [];
+        imageColors.push(...color);
+        generatePaletteHtml('image-colors', paletteContainer);
     });
 }
